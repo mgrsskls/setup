@@ -3,14 +3,29 @@
   email = mail@mgrossklaus.de
 [push]
   default = upstream
+  followTags = true
+[merge]
+  ff = only
+[status]
+  showUntrackedFiles = all
 [alias]
   co = checkout
-  pf = push --force
+  p = push
+  pf = push --force-with-lease
   pl = pull
-  s = stash
-  sp = stash pop
   plr = pull --rebase
+  d = diff
+  dc = diff --cached
+  cm = commit -m
+  cam = commit -am
+  st = stash save --include-untracked
+  sp = stash pop
+  s = status
+  prune = fetch --prune
+  undo = reset --soft HEAD^
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  b = branch
+  r = rebase
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
-  pager = diff-so-fancy | less --tabs=4 -RFX
